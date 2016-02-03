@@ -24,4 +24,18 @@ class Request extends Psr7Request
         ];
         parent::__construct($method, $uri, $headers);
     }
+
+    /**
+     * Get the class that can hold the response for this request.
+     *
+     * @return string
+     *   The name of the class.
+     */
+    public function getEntityClass()
+    {
+        $class = static::class;
+        $class = str_replace('Hussainweb\\DrupalApi\\Request\\', 'Hussainweb\\DrupalApi\\Entity\\', $class);
+        $class = substr($class, 0, strlen($class) - 7);
+        return $class;
+    }
 }
