@@ -8,7 +8,7 @@ namespace Hussainweb\DrupalApi\Entity\Collection;
 
 use Hussainweb\DrupalApi\Entity\Comment;
 
-class CommentCollection
+class CommentCollection extends EntityCollection
 {
 
     public function getListItemClass()

@@ -11,6 +11,7 @@ use Hussainweb\DrupalApi\Entity\Entity;
 use Hussainweb\DrupalApi\Entity\File;
 use Hussainweb\DrupalApi\Entity\Node;
 use Hussainweb\DrupalApi\Entity\PiftCiJob;
+use Hussainweb\DrupalApi\Entity\TaxonomyTerm;
 use Hussainweb\DrupalApi\Entity\User;
 
 class EntityTest extends \PHPUnit_Framework_TestCase
@@ -32,6 +33,12 @@ class EntityTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new Node(['test' => 1]);
         $this->assertEquals('nid', $entity->getIdField());
+    }
+
+    public function testTaxonomyTermEntity()
+    {
+        $entity = new TaxonomyTerm(['test' => 1]);
+        $this->assertEquals('tid', $entity->getIdField());
     }
 
     public function testCommentEntity()

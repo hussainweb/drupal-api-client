@@ -8,7 +8,7 @@ namespace Hussainweb\DrupalApi\Entity\Collection;
 
 use Hussainweb\DrupalApi\Entity\PiftCiJob;
 
-class PiftCiJobCollection
+class PiftCiJobCollection extends EntityCollection
 {
 
     public function getListItemClass()
