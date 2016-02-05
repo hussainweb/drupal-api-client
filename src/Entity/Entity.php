@@ -34,7 +34,7 @@ abstract class Entity
     /**
      * Get the specified property from the data.
      *
-     * @param $name
+     * @param string $name
      *   Property name
      *
      * @return mixed
@@ -47,14 +47,29 @@ abstract class Entity
 
     /**
      * Set the value to a specified property.
-     * @param $name
+     *
+     * @param string $name
      *   Property name
-     * @param $value
+     * @param mixed $value
      *   Value
      */
     public function __set($name, $value)
     {
         $this->rawData->$name = $value;
+    }
+
+    /**
+     * Check if the property is set.
+     *
+     * @param string $name
+     *   Property name
+     *
+     * @return bool
+     *   True if the property exists.
+     */
+    public function __isset($name)
+    {
+        return isset($this->rawData->$name);
     }
 
     /**
