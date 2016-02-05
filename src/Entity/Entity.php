@@ -36,4 +36,15 @@ abstract class Entity
      *   The name of the field which holds the id of the entity.
      */
     abstract public function getIdField();
+
+    /**
+     * Get the Id of the entity.
+     *
+     * @return mixed
+     */
+    public function getId()
+    {
+        $id_field = $this->getIdField();
+        return $this->rawData->$id_field;
+    }
 }

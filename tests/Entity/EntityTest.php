@@ -19,10 +19,13 @@ class EntityTest extends \PHPUnit_Framework_TestCase
     public function testEntity()
     {
         $entity = $this->getMockForAbstractClass(Entity::class, [
-            'raw_data' => ['test' => 1],
+            'raw_data' => (object) ['test' => 1],
         ]);
+        $entity->method('getIdField')
+            ->willReturn('test');
 
-        $this->assertEquals(['test' => 1], $entity->getData());
+        $this->assertEquals((object) ['test' => 1], $entity->getData());
+        $this->assertEquals(1, $entity->getId());
     }
 
     public function testNodeEntity()
