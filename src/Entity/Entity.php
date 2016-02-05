@@ -6,6 +6,8 @@
 
 namespace Hussainweb\DrupalApi\Entity;
 
+use Psr\Http\Message\ResponseInterface;
+
 abstract class Entity
 {
 
@@ -46,5 +48,19 @@ abstract class Entity
     {
         $id_field = $this->getIdField();
         return $this->rawData->$id_field;
+    }
+
+    /**
+     * Construct the object from a HTTP Response.
+     *
+     * @param \Psr\Http\Message\ResponseInterface $response
+     *   Response object to parse.
+     *
+     * @return static
+     *   The EntityCollection object for the response.
+     */
+    public static function fromResponse(ResponseInterface $response)
+    {
+        return new static(json_decode((string) $response->getBody()));
     }
 }
