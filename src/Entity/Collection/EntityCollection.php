@@ -7,6 +7,7 @@
 namespace Hussainweb\DrupalApi\Entity\Collection;
 
 use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class EntityCollection implements \Iterator
 {
@@ -21,6 +22,20 @@ abstract class EntityCollection implements \Iterator
     public function __construct($data)
     {
         $this->rawData = $data;
+    }
+
+    /**
+     * Construct the object from a HTTP Response.
+     *
+     * @param \Psr\Http\Message\ResponseInterface $response
+     *   Response object to parse.
+     *
+     * @return static
+     *   The EntityCollection object for the response.
+     */
+    public static function fromResponse(ResponseInterface $response)
+    {
+        return new static(json_decode((string) $response->getBody()));
     }
 
     public function getSelfLink()
