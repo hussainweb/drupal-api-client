@@ -32,6 +32,32 @@ abstract class Entity
     }
 
     /**
+     * Get the specified property from the data.
+     *
+     * @param $name
+     *   Property name
+     *
+     * @return mixed
+     *   Value for the property name.
+     */
+    public function __get($name)
+    {
+        return isset($this->rawData->$name) ? $this->rawData->$name : null;
+    }
+
+    /**
+     * Set the value to a specified property.
+     * @param $name
+     *   Property name
+     * @param $value
+     *   Value
+     */
+    public function __set($name, $value)
+    {
+        $this->rawData->$name = $value;
+    }
+
+    /**
      * Retrieve the name of the field which holds the id of the entity.
      *
      * @return string

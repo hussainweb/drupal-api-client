@@ -27,6 +27,11 @@ class EntityTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals((object) ['test' => 1], $entity->getData());
         $this->assertEquals(1, $entity->getId());
+
+        $this->assertEquals(1, $entity->test);
+        $entity->test = 2;
+        $this->assertEquals(2, $entity->getId());
+        $this->assertEquals(2, $entity->test);
     }
 
     public function testNodeEntity()
