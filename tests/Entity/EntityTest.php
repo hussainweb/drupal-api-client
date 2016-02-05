@@ -8,6 +8,7 @@ namespace Hussainweb\DrupalApi\Tests\Entity;
 
 use Hussainweb\DrupalApi\Entity\Comment;
 use Hussainweb\DrupalApi\Entity\Entity;
+use Hussainweb\DrupalApi\Entity\FieldCollection;
 use Hussainweb\DrupalApi\Entity\File;
 use Hussainweb\DrupalApi\Entity\Node;
 use Hussainweb\DrupalApi\Entity\PiftCiJob;
@@ -71,5 +72,11 @@ class EntityTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new PiftCiJob(['test' => 1]);
         $this->assertEquals('job_id', $entity->getIdField());
+    }
+
+    public function testFieldCollectionEntity()
+    {
+        $entity = new FieldCollection(['test' => 1]);
+        $this->assertEquals('item_id', $entity->getIdField());
     }
 }
