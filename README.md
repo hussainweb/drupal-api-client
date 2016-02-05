@@ -1,7 +1,7 @@
 # Drupal.org API client
 
 [![Latest Version](https://img.shields.io/github/release/hussainweb/drupal-api-client.svg?style=flat-square)](https://github.com/hussainweb/drupal-api-client/releases)
-[![Software License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat-square)](LICENSE)
+[![Software License](https://img.shields.io/badge/license-GPLv2-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/hussainweb/drupal-api-client/master.svg?style=flat-square)](https://travis-ci.org/hussainweb/drupal-api-client)
 [![Total Downloads](https://img.shields.io/packagist/dt/hussainweb/drupal-api-client.svg?style=flat-square)](https://packagist.org/packages/hussainweb/drupal-api-client)
 
