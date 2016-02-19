@@ -6,4 +6,4 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/hussainweb/drupal-api-client.svg?style=flat-square)](https://packagist.org/packages/hussainweb/drupal-api-client)
 
 
-This is a simple wrapper on Guzzle 6 to access and use the API provided by drupal.org.
+This is a simple wrapper on Guzzle 6 to access and use the API provided by drupal.org. It was built for [DruStats](https://github.com/hussainweb/drupal-stats) which was built for a developer contest in DrupalCon Asia. You can refer to [DruStats](https://github.com/hussainweb/drupal-stats) for example usage.
