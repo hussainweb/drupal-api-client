@@ -16,4 +16,12 @@ class Comment extends Entity
     {
         return 'cid';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIntegerFields()
+    {
+        return ['cid'];
+    }
 }

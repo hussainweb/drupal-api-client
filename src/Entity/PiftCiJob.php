@@ -16,4 +16,12 @@ class PiftCiJob extends Entity
     {
         return 'job_id';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIntegerFields()
+    {
+        return ['job_id'];
+    }
 }

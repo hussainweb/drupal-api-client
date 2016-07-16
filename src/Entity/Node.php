@@ -38,4 +38,12 @@ class Node extends Entity
     {
         return 'nid';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIntegerFields()
+    {
+        return ['nid', 'vid'];
+    }
 }

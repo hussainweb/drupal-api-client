@@ -44,4 +44,12 @@ class TaxonomyTerm extends Entity
     {
         return 'tid';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIntegerFields()
+    {
+        return ['tid'];
+    }
 }

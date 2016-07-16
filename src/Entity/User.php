@@ -16,4 +16,12 @@ class User extends Entity
     {
         return 'uid';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIntegerFields()
+    {
+        return ['uid'];
+    }
 }

@@ -16,4 +16,12 @@ class FieldCollection extends Entity
     {
         return 'item_id';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIntegerFields()
+    {
+        return ['item_id'];
+    }
 }

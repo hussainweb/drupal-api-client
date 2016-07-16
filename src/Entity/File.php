@@ -16,4 +16,12 @@ class File extends Entity
     {
         return 'fid';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getIntegerFields()
+    {
+        return ['fid'];
+    }
 }

@@ -16,9 +16,24 @@ abstract class Entity
      */
     protected $rawData;
 
+    /**
+     * @var mixed
+     */
+    protected $data;
+
     public function __construct($raw_data)
     {
         $this->rawData = $raw_data;
+    }
+
+    /**
+     * Get the original raw data.
+     *
+     * @return mixed
+     */
+    public function getRawData()
+    {
+        return $this->rawData;
     }
 
     /**
@@ -28,7 +43,16 @@ abstract class Entity
      */
     public function getData()
     {
-        return $this->rawData;
+        if (!$this->data) {
+            // Convert the appropriate fields to integer.
+            $this->data = (object) $this->rawData;
+            $int_fields = $this->getIntegerFields();
+            foreach ($int_fields as $field) {
+                $this->data->$field = (int) $this->data->$field;
+            }
+        }
+
+        return $this->data;
     }
 
     /**
@@ -90,6 +114,14 @@ abstract class Entity
         $id_field = $this->getIdField();
         return $this->rawData->$id_field;
     }
+
+    /**
+     * Retrieve the names of fields which are supposed to be integers.
+     *
+     * @return string[]
+     *   Array of field names which are supposed to be integers.
+     */
+    abstract protected function getIntegerFields();
 
     /**
      * Construct the object from a HTTP Response.
