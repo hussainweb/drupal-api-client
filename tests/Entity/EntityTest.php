@@ -44,6 +44,7 @@ class EntityTest extends \PHPUnit_Framework_TestCase
     {
         $entity = new Node(['test' => 1, 'nid' => '2', 'vid' => '3']);
         $this->assertEquals('nid', $entity->getIdField());
+        $this->assertSame(2, $entity->getId());
         $this->assertNotSame('2', $entity->getData()->nid);
         $this->assertSame(3, $entity->getData()->vid);
     }

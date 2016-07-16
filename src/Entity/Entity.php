@@ -112,7 +112,7 @@ abstract class Entity
     public function getId()
     {
         $id_field = $this->getIdField();
-        return $this->rawData->$id_field;
+        return $this->getData()->$id_field;
     }
 
     /**
