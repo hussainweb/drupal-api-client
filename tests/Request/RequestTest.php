@@ -3,6 +3,7 @@
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\Request;
+use Hussainweb\DrupalApi\Request\UserRequest;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
@@ -29,7 +30,9 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function testRequestUserAgent()
     {
         Request::$userAgent = 'Drupal.org API client Test Suite';
-        $req = new Request("test.json");
+        // Test with a child request class to ensure the user-agent is used
+        // globally.
+        $req = new UserRequest('314031');
         $this->assertEquals('Drupal.org API client Test Suite', $req->getHeaderLine('User-Agent'));
     }
 }

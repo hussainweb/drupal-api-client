@@ -23,7 +23,15 @@ The library provides a single client and multiple request classes to send reques
 
     // Retrieve user with uid 314031.
     $client = new Client();
-    $user_request = new UserRequest(314031);
+    $user_request = new UserRequest('314031');
     $user = $client->getEntity($user_request);
 
 There are various request classes to retrieve different types of entities and entity listings. Many of the entity request classes have a corresponding list request class as well, e.g. `CommentRequest` and `CommentCollectionRequest`.
+
+### User Agent
+
+In accordance with responsible usage of Drupal.org API, it is important to set the user-agent header to indicate your application. You may set this request once globally using the static property on the `Request` class.
+
+    Request::$userAgent = 'Drupal Statistics Collector';
+
+You have to do this only once as this user-agent is applied to all child requests as well. See the test in `\Hussainweb\DrupalApi\Tests\Request\RequestTest::testRequestUserAgent` for verifying the behaviour.
