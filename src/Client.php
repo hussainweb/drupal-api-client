@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi;
 
 use GuzzleHttp\Client as GuzzleClient;

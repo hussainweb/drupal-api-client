@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Entity;
 
 class Comment extends Entity

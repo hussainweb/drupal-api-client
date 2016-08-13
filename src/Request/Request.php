@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Request;
 
 use GuzzleHttp\Psr7\Request as Psr7Request;

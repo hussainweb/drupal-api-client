@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Request\Collection;
 
 class PiftCiJobCollectionRequest extends CollectionRequest

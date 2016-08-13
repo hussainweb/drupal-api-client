@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Tests\Entity\Collection;
 
 use Hussainweb\DrupalApi\Entity\Collection\CommentCollection;

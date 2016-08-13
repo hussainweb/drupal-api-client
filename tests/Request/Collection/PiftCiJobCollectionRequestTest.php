@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Tests\Request\Collection;
 
 use Hussainweb\DrupalApi\Request\Collection\PiftCiJobCollectionRequest;

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Entity\Collection;
 
 use GuzzleHttp\Psr7\Uri;

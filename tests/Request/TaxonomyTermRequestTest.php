@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\TaxonomyTermRequest;

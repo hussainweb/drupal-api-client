@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- */
-
 namespace Hussainweb\DrupalApi\Entity\Collection;
 
 use Hussainweb\DrupalApi\Entity\Node;
