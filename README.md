@@ -7,3 +7,23 @@
 
 
 This is a simple wrapper on Guzzle 6 to access and use the API provided by drupal.org. It was built for [DruStats](https://github.com/hussainweb/drupal-stats) which was built for a developer contest in DrupalCon Asia. You can refer to [DruStats](https://github.com/hussainweb/drupal-stats) for example usage.
+
+## Intallation
+
+Use composer to install the package.
+
+    composer require hussainweb/drupal-api-client:"^0.9"
+
+## Usage
+
+The library provides a single client and multiple request classes to send requests to drupal.org API. To send a request, create a request object and call the `getEntity` method on the client class.
+
+    use Hussainweb\DrupalApi\Client;
+    use Hussainweb\DrupalApi\Request\UserRequest;
+
+    // Retrieve user with uid 314031.
+    $client = new Client();
+    $user_request = new UserRequest(314031);
+    $user = $client->getEntity($user_request);
+
+There are various request classes to retrieve different types of entities and entity listings. Many of the entity request classes have a corresponding list request class as well, e.g. `CommentRequest` and `CommentCollectionRequest`.
