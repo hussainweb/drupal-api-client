@@ -12,7 +12,7 @@ This is a simple wrapper on Guzzle 6 to access and use the API provided by drupa
 
 Use composer to install the package.
 
-    composer require hussainweb/drupal-api-client:"^0.9"
+    composer require hussainweb/drupal-api-client:"~1.0"
 
 ## Usage
 
