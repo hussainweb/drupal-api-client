@@ -36,6 +36,8 @@ class EntityCollectionTest extends \PHPUnit_Framework_TestCase
         foreach ($collection as $id => $item) {
             $this->assertNotEmpty($item->getData()->cid);
         }
+
+        $this->assertEquals(100, count($collection));
     }
 
     public function testCommentCollection()

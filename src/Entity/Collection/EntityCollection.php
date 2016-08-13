@@ -5,7 +5,7 @@ namespace Hussainweb\DrupalApi\Entity\Collection;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\ResponseInterface;
 
-abstract class EntityCollection implements \Iterator
+abstract class EntityCollection implements \Iterator, \Countable
 {
 
     private $iteratorPosition = 0;
@@ -126,5 +126,13 @@ abstract class EntityCollection implements \Iterator
     public function rewind()
     {
         $this->iteratorPosition = 0;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function count()
+    {
+        return count($this->rawData->list);
     }
 }
