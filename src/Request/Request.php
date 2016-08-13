@@ -9,13 +9,20 @@ class Request extends Psr7Request
 
     const DEFAULT_BASE_URI = 'https://www.drupal.org/api-d7/';
 
+    /**
+     * The user agent to use when sending the request.
+     *
+     * @var string
+     */
+    public static $userAgent = 'Drupal.org API client (hussainweb/drupal-api-client)';
+
     public function __construct(
         $uri,
         array $headers = []
     ) {
         $method = 'GET';
         $headers += [
-            'User-Agent' => 'Drupal Statistics Collector',
+            'User-Agent' => static::$userAgent,
             'Accept' => 'application/json',
         ];
         parent::__construct($method, $uri, $headers);
