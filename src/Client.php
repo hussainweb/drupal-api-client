@@ -2,15 +2,25 @@
 
 namespace Hussainweb\DrupalApi;
 
-use GuzzleHttp\Client as GuzzleClient;
 use Hussainweb\DrupalApi\Entity\Collection\EntityCollection;
 use Hussainweb\DrupalApi\Entity\Entity;
 use Hussainweb\DrupalApi\Request\Request;
+use Psr\Http\Client\ClientInterface;
 
-class Client extends GuzzleClient
+class Client
 {
 
     /**
+     * @var \Psr\Http\Client\ClientInterface
+     */
+    protected $httpClient;
+
+    public function __construct(ClientInterface $client)
+    {
+        $this->httpClient = $client;
+    }
+
+  /**
      * Send an API request and wrap it in the corresponding Entity object.
      *
      * @param \Hussainweb\DrupalApi\Request\Request $request
@@ -21,7 +31,7 @@ class Client extends GuzzleClient
      */
     public function getEntity(Request $request)
     {
-        $response = $this->send($request);
+        $response = $this->httpClient->sendRequest($request);
         $entity_class = $request->getEntityClass();
         return $entity_class::fromResponse($response);
     }
