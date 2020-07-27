@@ -8,7 +8,7 @@
 
 This is a simple wrapper on Guzzle 6 to access and use the API provided by drupal.org. It was built for [DruStats](https://github.com/hussainweb/drupal-stats) which was built for a developer contest in DrupalCon Asia. You can refer to [DruStats](https://github.com/hussainweb/drupal-stats) for example usage.
 
-## Intallation
+## Installation
 
 Use composer to install the package.
 

@@ -11,7 +11,7 @@ class Client
 {
 
     /**
-     * @var \Psr\Http\Client\ClientInterface
+     * @var ClientInterface
      */
     protected $httpClient;
 
@@ -20,14 +20,16 @@ class Client
         $this->httpClient = $client;
     }
 
-  /**
+    /**
      * Send an API request and wrap it in the corresponding Entity object.
      *
-     * @param \Hussainweb\DrupalApi\Request\Request $request
+     * @param Request $request
      *   The request to send.
      *
      * @return Entity|EntityCollection
      *   The entity or the collection for the request.
+     *
+     * @throws \Psr\Http\Client\ClientExceptionInterface
      */
     public function getEntity(Request $request)
     {
