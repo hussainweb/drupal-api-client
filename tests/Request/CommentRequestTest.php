@@ -3,8 +3,9 @@
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\CommentRequest;
+use PHPUnit\Framework\TestCase;
 
-class CommentRequestTest extends \PHPUnit_Framework_TestCase
+class CommentRequestTest extends TestCase
 {
 
     public function testRequest()

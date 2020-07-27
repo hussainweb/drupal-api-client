@@ -4,8 +4,9 @@ namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Entity\Node;
 use Hussainweb\DrupalApi\Request\NodeRequest;
+use PHPUnit\Framework\TestCase;
 
-class NodeRequestTest extends \PHPUnit_Framework_TestCase
+class NodeRequestTest extends TestCase
 {
 
     public function testRequest()

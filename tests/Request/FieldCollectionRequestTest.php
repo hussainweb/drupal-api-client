@@ -3,8 +3,9 @@
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\FieldCollectionRequest;
+use PHPUnit\Framework\TestCase;
 
-class FieldCollectionRequestTest extends \PHPUnit_Framework_TestCase
+class FieldCollectionRequestTest extends TestCase
 {
 
     public function testRequest()

@@ -3,8 +3,9 @@
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\TaxonomyTermRequest;
+use PHPUnit\Framework\TestCase;
 
-class TaxonomyTermRequestTest extends \PHPUnit_Framework_TestCase
+class TaxonomyTermRequestTest extends TestCase
 {
 
     public function testRequest()

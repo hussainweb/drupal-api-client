@@ -3,8 +3,9 @@
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\FileRequest;
+use PHPUnit\Framework\TestCase;
 
-class FileRequestTest extends \PHPUnit_Framework_TestCase
+class FileRequestTest extends TestCase
 {
 
     public function testRequest()

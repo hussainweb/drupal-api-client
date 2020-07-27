@@ -10,8 +10,9 @@ use Hussainweb\DrupalApi\Entity\Node;
 use Hussainweb\DrupalApi\Entity\PiftCiJob;
 use Hussainweb\DrupalApi\Entity\TaxonomyTerm;
 use Hussainweb\DrupalApi\Entity\User;
+use PHPUnit\Framework\TestCase;
 
-class EntityTest extends \PHPUnit_Framework_TestCase
+class EntityTest extends TestCase
 {
 
     public function testEntity()

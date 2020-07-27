@@ -3,8 +3,9 @@
 namespace Hussainweb\DrupalApi\Tests\Request;
 
 use Hussainweb\DrupalApi\Request\PiftCiJobRequest;
+use PHPUnit\Framework\TestCase;
 
-class PiftCiJobRequestTest extends \PHPUnit_Framework_TestCase
+class PiftCiJobRequestTest extends TestCase
 {
 
     public function testRequest()

@@ -13,8 +13,9 @@ use Hussainweb\DrupalApi\Entity\Node;
 use Hussainweb\DrupalApi\Entity\PiftCiJob;
 use Hussainweb\DrupalApi\Entity\TaxonomyTerm;
 use Hussainweb\DrupalApi\Entity\User;
+use PHPUnit\Framework\TestCase;
 
-class EntityCollectionTest extends \PHPUnit_Framework_TestCase
+class EntityCollectionTest extends TestCase
 {
 
     public function testEntityCollection()
