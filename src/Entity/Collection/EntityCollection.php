@@ -11,7 +11,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     private $iteratorPosition = 0;
 
     /**
-     * @var array
+     * @var \stdClass
      */
     protected $rawData;
 
