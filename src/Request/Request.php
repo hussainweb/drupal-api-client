@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Request as Psr7Request;
 class Request extends Psr7Request
 {
 
-    const DEFAULT_BASE_URI = 'https://www.drupal.org/api-d7/';
+    public const DEFAULT_BASE_URI = 'https://www.drupal.org/api-d7/';
 
     /**
      * The user agent to use when sending the request.
