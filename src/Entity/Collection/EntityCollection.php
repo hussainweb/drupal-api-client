@@ -15,7 +15,7 @@ abstract class EntityCollection implements \Iterator, \Countable
      */
     protected $rawData;
 
-    public function __construct($data)
+    final public function __construct($data)
     {
         $this->rawData = $data;
     }
@@ -85,7 +85,7 @@ abstract class EntityCollection implements \Iterator, \Countable
      * @return string
      *   The name of the class to represent the response.
      */
-    abstract public function getListItemClass();
+    abstract public function getListItemClass(): string;
 
     /**
      * {@inheritdoc}

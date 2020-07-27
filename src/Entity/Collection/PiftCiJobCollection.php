@@ -7,7 +7,7 @@ use Hussainweb\DrupalApi\Entity\PiftCiJob;
 class PiftCiJobCollection extends EntityCollection
 {
 
-    public function getListItemClass()
+    public function getListItemClass(): string
     {
         return PiftCiJob::class;
     }

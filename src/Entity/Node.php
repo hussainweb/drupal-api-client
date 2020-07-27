@@ -30,7 +30,7 @@ class Node extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return 'nid';
     }
@@ -38,7 +38,7 @@ class Node extends Entity
     /**
      * {@inheritdoc}
      */
-    protected function getIntegerFields()
+    protected function getIntegerFields(): array
     {
         return ['nid', 'vid'];
     }

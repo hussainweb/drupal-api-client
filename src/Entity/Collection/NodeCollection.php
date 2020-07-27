@@ -7,7 +7,7 @@ use Hussainweb\DrupalApi\Entity\Node;
 class NodeCollection extends EntityCollection
 {
 
-    public function getListItemClass()
+    public function getListItemClass(): string
     {
         return Node::class;
     }

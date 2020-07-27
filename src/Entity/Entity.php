@@ -17,7 +17,7 @@ abstract class Entity
      */
     protected $data;
 
-    public function __construct($raw_data)
+    final public function __construct($raw_data)
     {
         $this->rawData = $raw_data;
     }
@@ -73,7 +73,7 @@ abstract class Entity
      * @param mixed $value
      *   Value
      */
-    public function __set($name, $value)
+    public function __set($name, $value): void
     {
         $this->rawData->$name = $value;
     }
@@ -87,7 +87,7 @@ abstract class Entity
      * @return bool
      *   True if the property exists.
      */
-    public function __isset($name)
+    public function __isset($name): bool
     {
         return isset($this->rawData->$name);
     }
@@ -98,7 +98,7 @@ abstract class Entity
      * @return string
      *   The name of the field which holds the id of the entity.
      */
-    abstract public function getIdField();
+    abstract public function getIdField(): string;
 
     /**
      * Get the Id of the entity.
@@ -117,7 +117,7 @@ abstract class Entity
      * @return string[]
      *   Array of field names which are supposed to be integers.
      */
-    abstract protected function getIntegerFields();
+    abstract protected function getIntegerFields(): array;
 
     /**
      * Construct the object from a HTTP Response.
@@ -128,7 +128,7 @@ abstract class Entity
      * @return static
      *   The EntityCollection object for the response.
      */
-    public static function fromResponse(ResponseInterface $response)
+    public static function fromResponse(ResponseInterface $response): self
     {
         return new static(json_decode((string) $response->getBody()));
     }

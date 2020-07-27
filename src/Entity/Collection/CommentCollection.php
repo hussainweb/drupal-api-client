@@ -7,7 +7,7 @@ use Hussainweb\DrupalApi\Entity\Comment;
 class CommentCollection extends EntityCollection
 {
 
-    public function getListItemClass()
+    public function getListItemClass(): string
     {
         return Comment::class;
     }

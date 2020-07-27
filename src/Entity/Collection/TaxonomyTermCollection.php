@@ -7,7 +7,7 @@ use Hussainweb\DrupalApi\Entity\TaxonomyTerm;
 class TaxonomyTermCollection extends EntityCollection
 {
 
-    public function getListItemClass()
+    public function getListItemClass(): string
     {
         return TaxonomyTerm::class;
     }

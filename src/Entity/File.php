@@ -8,7 +8,7 @@ class File extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return 'fid';
     }
@@ -16,7 +16,7 @@ class File extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIntegerFields()
+    public function getIntegerFields(): array
     {
         return ['fid'];
     }

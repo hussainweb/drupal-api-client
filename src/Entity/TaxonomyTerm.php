@@ -36,7 +36,7 @@ class TaxonomyTerm extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return 'tid';
     }
@@ -44,7 +44,7 @@ class TaxonomyTerm extends Entity
     /**
      * {@inheritdoc}
      */
-    protected function getIntegerFields()
+    protected function getIntegerFields(): array
     {
         return ['tid'];
     }

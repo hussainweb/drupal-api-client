@@ -8,7 +8,7 @@ class FieldCollection extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return 'item_id';
     }
@@ -16,7 +16,7 @@ class FieldCollection extends Entity
     /**
      * {@inheritdoc}
      */
-    protected function getIntegerFields()
+    protected function getIntegerFields(): array
     {
         return ['item_id'];
     }

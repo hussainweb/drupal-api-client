@@ -7,7 +7,7 @@ use Hussainweb\DrupalApi\Entity\User;
 class UserCollection extends EntityCollection
 {
 
-    public function getListItemClass()
+    public function getListItemClass(): string
     {
         return User::class;
     }

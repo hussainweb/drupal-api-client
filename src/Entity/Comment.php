@@ -8,7 +8,7 @@ class Comment extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return 'cid';
     }
@@ -16,7 +16,7 @@ class Comment extends Entity
     /**
      * {@inheritdoc}
      */
-    protected function getIntegerFields()
+    protected function getIntegerFields(): array
     {
         return ['cid'];
     }

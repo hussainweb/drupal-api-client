@@ -8,7 +8,7 @@ class User extends Entity
     /**
      * {@inheritdoc}
      */
-    public function getIdField()
+    public function getIdField(): string
     {
         return 'uid';
     }
@@ -16,7 +16,7 @@ class User extends Entity
     /**
      * {@inheritdoc}
      */
-    protected function getIntegerFields()
+    protected function getIntegerFields(): array
     {
         return ['uid'];
     }

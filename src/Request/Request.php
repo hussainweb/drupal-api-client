@@ -17,7 +17,7 @@ class Request extends Psr7Request
     public static $userAgent = 'Drupal.org API client (hussainweb/drupal-api-client)';
 
     public function __construct(
-        $uri,
+        string $uri,
         array $headers = []
     ) {
         $method = 'GET';
@@ -34,7 +34,7 @@ class Request extends Psr7Request
      * @return string
      *   The name of the class.
      */
-    public function getEntityClass()
+    public function getEntityClass(): string
     {
         $class = static::class;
         $class = str_replace('Hussainweb\\DrupalApi\\Request\\', 'Hussainweb\\DrupalApi\\Entity\\', $class);
