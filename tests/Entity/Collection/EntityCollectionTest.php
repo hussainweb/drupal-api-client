@@ -32,13 +32,13 @@ class EntityCollectionTest extends TestCase
         $this->assertEquals("https://www.drupal.org/api-d7/comment.json?page=0", (string) $collection->getFirstLink());
         $this->assertEquals("https://www.drupal.org/api-d7/comment.json?page=59344", (string) $collection->getPreviousLink());
         $this->assertEquals("https://www.drupal.org/api-d7/comment.json?page=59346", (string) $collection->getNextLink());
-        $this->assertEquals("https://www.drupal.org/api-d7/comment.json?page=59358", (string) $collection->getLastLink());
+        $this->assertEquals("https://www.drupal.org/api-d7/comment.json?page=168029", (string) $collection->getLastLink());
 
         foreach ($collection as $id => $item) {
             $this->assertNotEmpty($item->getData()->cid);
         }
 
-        $this->assertEquals(100, count($collection));
+        $this->assertEquals(50, count($collection));
     }
 
     public function testCommentCollection()
