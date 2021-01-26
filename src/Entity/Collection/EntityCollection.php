@@ -2,8 +2,9 @@
 
 namespace Hussainweb\DrupalApi\Entity\Collection;
 
-use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 abstract class EntityCollection implements \Iterator, \Countable
 {
@@ -31,7 +32,7 @@ abstract class EntityCollection implements \Iterator, \Countable
      */
     public static function fromResponse(ResponseInterface $response)
     {
-        return new static(json_decode((string) $response->getBody()));
+        return new static((new JsonDecode())->decode((string) $response->getBody(), JsonEncoder::FORMAT));
     }
 
     public function getSelfLink()
