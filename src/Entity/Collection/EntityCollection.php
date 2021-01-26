@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
-abstract class EntityCollection implements \Iterator, \Countable
+abstract class EntityCollection implements EntityCollectionInterface, \Countable
 {
     use CollectionRelLinkTrait;
 
@@ -72,7 +72,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->rawData->list[$this->iteratorPosition]);
     }
