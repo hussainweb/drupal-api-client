@@ -5,7 +5,6 @@ namespace Hussainweb\DrupalApi\Tests\Entity\Collection;
 use GuzzleHttp\Psr7\Response;
 use Hussainweb\DrupalApi\Entity\Collection\PagingEntityCollection;
 use Hussainweb\DrupalApi\Entity\Comment;
-use Hussainweb\DrupalApi\Request\Collection\CollectionRequest;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 
