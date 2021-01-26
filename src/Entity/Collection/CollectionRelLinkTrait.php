@@ -61,5 +61,4 @@ trait CollectionRelLinkTrait
         $uri = $uri->withPath($uri->getPath() . '.json');
         return $uri;
     }
-
 }
