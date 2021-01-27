@@ -2,6 +2,7 @@
 
 namespace Hussainweb\DrupalApi\Entity\Collection;
 
+use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -34,6 +35,21 @@ abstract class EntityCollection implements EntityCollectionInterface, \Countable
     public static function fromResponse(ResponseInterface $response)
     {
         return new static((new JsonDecode())->decode((string) $response->getBody(), JsonEncoder::FORMAT));
+    }
+
+    /**
+     * Construct a paging entity collection from this collection.
+     *
+     * @param \Psr\Http\Client\ClientInterface $client
+     *   The HTTP client used to fetch subsequent pages.
+     *
+     * @see \Hussainweb\DrupalApi\Client::getEntity
+     *
+     * @return \Hussainweb\DrupalApi\Entity\Collection\PagingEntityCollection
+     */
+    public function toPagingEntityCollection(ClientInterface $client): PagingEntityCollection
+    {
+        return new PagingEntityCollection($this->rawData, $client, $this->getListItemClass());
     }
 
     /**
