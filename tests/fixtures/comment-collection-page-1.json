@@ -1,0 +1,144 @@
+{
+  "self": "https://www.drupal.org/api-d7/comment?page=1&limit=5",
+  "first": "https://www.drupal.org/api-d7/comment?page=0&limit=5",
+  "last": "https://www.drupal.org/api-d7/comment?page=1720439&limit=5",
+  "prev": "https://www.drupal.org/api-d7/comment?page=0&limit=5",
+  "next": "https://www.drupal.org/api-d7/comment?page=2&limit=5",
+  "list": [
+    {
+      "comment_body": {
+        "value": "<p>not a bug, i guess - just the admin not having created a forum yet.</p>",
+        "format": "1"
+      },
+      "field_attribute_contribution_to": [],
+      "field_for_customer": [],
+      "field_attribute_as_volunteer": [],
+      "cid": "287094",
+      "name": "ax",
+      "homepage": "",
+      "subject": "",
+      "url": "https://www.drupal.org/project/drupal/issues/11#comment-287094",
+      "edit_url": "https://www.drupal.org/comment/edit/287094",
+      "created": "1008677001",
+      "node": {
+        "uri": "https://www.drupal.org/api-d7/node/11",
+        "id": "11",
+        "resource": "node"
+      },
+      "author": {
+        "uri": "https://www.drupal.org/api-d7/user/8",
+        "id": "8",
+        "resource": "user"
+      },
+      "feeds_item_guid": null,
+      "feeds_item_url": null,
+      "feed_nid": null
+    },
+    {
+      "comment_body": {
+        "value": "<p>I think I fixed it.  It was a typo: $edit[\"uid\"] should have read $node-&gt;uid.</p>",
+        "format": "1"
+      },
+      "field_attribute_contribution_to": [],
+      "field_for_customer": [],
+      "field_attribute_as_volunteer": [],
+      "cid": "287097",
+      "name": "Dries",
+      "homepage": "",
+      "subject": "",
+      "url": "https://www.drupal.org/project/drupal/issues/16#comment-287097",
+      "edit_url": "https://www.drupal.org/comment/edit/287097",
+      "created": "1008709273",
+      "node": {
+        "uri": "https://www.drupal.org/api-d7/node/16",
+        "id": "16",
+        "resource": "node"
+      },
+      "author": {
+        "uri": "https://www.drupal.org/api-d7/user/1",
+        "id": "1",
+        "resource": "user"
+      },
+      "feeds_item_guid": null,
+      "feeds_item_url": null,
+      "feed_nid": null
+    },
+    {
+      "comment_body": {
+        "value": "<p>Fixed in CVS.</p>",
+        "format": "1"
+      },
+      "field_attribute_contribution_to": [],
+      "field_for_customer": [],
+      "field_attribute_as_volunteer": [],
+      "cid": "287095",
+      "name": "",
+      "homepage": "",
+      "subject": "",
+      "url": "https://www.drupal.org/project/drupal/issues/15#comment-287095",
+      "edit_url": "https://www.drupal.org/comment/edit/287095",
+      "created": "1008862665",
+      "node": {
+        "uri": "https://www.drupal.org/api-d7/node/15",
+        "id": "15",
+        "resource": "node"
+      },
+      "feeds_item_guid": null,
+      "feeds_item_url": null,
+      "feed_nid": null
+    },
+    {
+      "comment_body": {
+        "value": "<p>Marking as fixed. Ax: if this fixed it please close the bug.</p>",
+        "format": "1"
+      },
+      "field_attribute_contribution_to": [],
+      "field_for_customer": [],
+      "field_attribute_as_volunteer": [],
+      "cid": "287098",
+      "name": "",
+      "homepage": "",
+      "subject": "",
+      "url": "https://www.drupal.org/project/drupal/issues/16#comment-287098",
+      "edit_url": "https://www.drupal.org/comment/edit/287098",
+      "created": "1008862728",
+      "node": {
+        "uri": "https://www.drupal.org/api-d7/node/16",
+        "id": "16",
+        "resource": "node"
+      },
+      "feeds_item_guid": null,
+      "feeds_item_url": null,
+      "feed_nid": null
+    },
+    {
+      "comment_body": {
+        "value": "<p>this fixes the \"Submitted by anonymous\" issue - but the missing link(s) remain. i don't know if /you/ consider it a bug that the preview shows different (less) links than the actual, finished node (in the example of a blog: preview shows only \"update this blog\"; actual node - node.php?id=X - shows \"update this blog\" and \"add new comment\") - i /do/ consider it a bug, so i leave this open.</p>\n<p>note: other node types may have more, different and more \"important\" links than blogs.</p>\n<p>feel free to close this bug if you dont agree. or should this be made a separate report?</p>",
+        "format": "1"
+      },
+      "field_attribute_contribution_to": [],
+      "field_for_customer": [],
+      "field_attribute_as_volunteer": [],
+      "cid": "287099",
+      "name": "ax",
+      "homepage": "",
+      "subject": "",
+      "url": "https://www.drupal.org/project/drupal/issues/16#comment-287099",
+      "edit_url": "https://www.drupal.org/comment/edit/287099",
+      "created": "1008865465",
+      "node": {
+        "uri": "https://www.drupal.org/api-d7/node/16",
+        "id": "16",
+        "resource": "node"
+      },
+      "author": {
+        "uri": "https://www.drupal.org/api-d7/user/8",
+        "id": "8",
+        "resource": "user"
+      },
+      "feeds_item_guid": null,
+      "feeds_item_url": null,
+      "feed_nid": null
+    }
+  ]
+}

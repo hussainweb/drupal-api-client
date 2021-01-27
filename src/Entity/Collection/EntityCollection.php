@@ -2,11 +2,14 @@
 
 namespace Hussainweb\DrupalApi\Entity\Collection;
 
-use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
-abstract class EntityCollection implements \Iterator, \Countable
+abstract class EntityCollection implements EntityCollectionInterface, \Countable
 {
+    use CollectionRelLinkTrait;
 
     private $iteratorPosition = 0;
 
@@ -31,52 +34,22 @@ abstract class EntityCollection implements \Iterator, \Countable
      */
     public static function fromResponse(ResponseInterface $response)
     {
-        return new static(json_decode((string) $response->getBody()));
-    }
-
-    public function getSelfLink()
-    {
-        return $this->getRelLink('self');
-    }
-
-    public function getFirstLink()
-    {
-        return $this->getRelLink('first');
-    }
-
-    public function getPreviousLink()
-    {
-        return $this->getRelLink('prev');
-    }
-
-    public function getNextLink()
-    {
-        return $this->getRelLink('next');
-    }
-
-    public function getLastLink()
-    {
-        return $this->getRelLink('last');
+        return new static((new JsonDecode())->decode((string) $response->getBody(), JsonEncoder::FORMAT));
     }
 
     /**
-     * Get the related link.
+     * Construct a paging entity collection from this collection.
      *
-     * @param string $link_name
-     *   The name of the related link to retrieve.
+     * @param \Psr\Http\Client\ClientInterface $client
+     *   The HTTP client used to fetch subsequent pages.
      *
-     * @return bool|\Psr\Http\Message\UriInterface
-     *   The related URL or FALSE if not present.
+     * @see \Hussainweb\DrupalApi\Client::getEntity
+     *
+     * @return \Hussainweb\DrupalApi\Entity\Collection\PagingEntityCollection
      */
-    protected function getRelLink($link_name)
+    public function toPagingEntityCollection(ClientInterface $client): PagingEntityCollection
     {
-        if (!isset($this->rawData->$link_name)) {
-            return false;
-        }
-
-        $uri = new Uri($this->rawData->$link_name);
-        $uri = $uri->withPath($uri->getPath() . '.json');
-        return $uri;
+        return new PagingEntityCollection($this->rawData, $client, $this->getListItemClass());
     }
 
     /**
@@ -115,7 +88,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->rawData->list[$this->iteratorPosition]);
     }
