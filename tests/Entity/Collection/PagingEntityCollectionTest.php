@@ -8,7 +8,6 @@ use Hussainweb\DrupalApi\Entity\Collection\CommentCollection;
 use Hussainweb\DrupalApi\Entity\Collection\PagingEntityCollection;
 use Hussainweb\DrupalApi\Entity\Comment;
 use Hussainweb\DrupalApi\Request\Collection\CommentCollectionRequest;
-use Hussainweb\DrupalApi\Request\Request;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 
