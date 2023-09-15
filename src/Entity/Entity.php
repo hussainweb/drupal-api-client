@@ -9,16 +9,13 @@ abstract class Entity
     /**
      * @var mixed
      */
-    protected $rawData;
-
-    /**
-     * @var mixed
-     */
     protected $data;
 
-    final public function __construct($raw_data)
+    /**
+     * @param mixed $raw_data
+     */
+    final public function __construct(protected $rawData)
     {
-        $this->rawData = $raw_data;
     }
 
     /**
@@ -61,7 +58,7 @@ abstract class Entity
      */
     public function __get($name)
     {
-        return isset($this->rawData->$name) ? $this->rawData->$name : null;
+        return $this->rawData->$name ?? null;
     }
 
     /**
@@ -72,7 +69,7 @@ abstract class Entity
      * @param mixed $value
      *   Value
      */
-    public function __set($name, $value): void
+    public function __set($name, mixed $value): void
     {
         $this->rawData->$name = $value;
     }
@@ -129,6 +126,6 @@ abstract class Entity
      */
     public static function fromResponse(ResponseInterface $response): self
     {
-        return new static(json_decode((string) $response->getBody()));
+        return new static(json_decode((string) $response->getBody(), null, 512, JSON_THROW_ON_ERROR));
     }
 }

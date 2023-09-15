@@ -20,7 +20,7 @@ class EntityCollectionTest extends TestCase
 
     public function testEntityCollection()
     {
-        $raw_data = json_decode(file_get_contents(__DIR__ . '/../../fixtures/comment-collection.json'));
+        $raw_data = json_decode(file_get_contents(__DIR__ . '/../../fixtures/comment-collection.json'), null, 512, JSON_THROW_ON_ERROR);
         $collection = $this->getMockForAbstractClass(EntityCollection::class, [
             'data' => $raw_data,
         ]);

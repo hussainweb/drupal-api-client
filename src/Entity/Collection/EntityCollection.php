@@ -7,16 +7,13 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class EntityCollection implements \Iterator, \Countable
 {
-    private $iteratorPosition = 0;
+    private int $iteratorPosition = 0;
 
     /**
-     * @var \stdClass
+     * @param \stdClass $data
      */
-    protected $rawData;
-
-    final public function __construct($data)
+    final public function __construct(protected $rawData)
     {
-        $this->rawData = $data;
     }
 
     /**
@@ -30,7 +27,7 @@ abstract class EntityCollection implements \Iterator, \Countable
      */
     public static function fromResponse(ResponseInterface $response)
     {
-        return new static(json_decode((string) $response->getBody()));
+        return new static(json_decode((string) $response->getBody(), null, 512, JSON_THROW_ON_ERROR));
     }
 
     public function getSelfLink()
@@ -132,6 +129,6 @@ abstract class EntityCollection implements \Iterator, \Countable
      */
     public function count()
     {
-        return count($this->rawData->list);
+        return is_countable($this->rawData->list) ? count($this->rawData->list) : 0;
     }
 }

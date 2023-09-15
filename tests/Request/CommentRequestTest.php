@@ -10,7 +10,7 @@ class CommentRequestTest extends TestCase
 
     public function testRequest()
     {
-        $req = new CommentRequest(10199115);
+        $req = new CommentRequest(10_199_115);
         $this->assertEquals('https://www.drupal.org/api-d7/comment/10199115.json', $req->getUri());
     }
 }
