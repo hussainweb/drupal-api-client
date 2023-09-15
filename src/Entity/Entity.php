@@ -6,7 +6,6 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class Entity
 {
-
     /**
      * @var mixed
      */

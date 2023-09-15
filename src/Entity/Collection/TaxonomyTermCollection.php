@@ -6,7 +6,6 @@ use Hussainweb\DrupalApi\Entity\TaxonomyTerm;
 
 class TaxonomyTermCollection extends EntityCollection
 {
-
     /**
      * {@inheritdoc}
      */

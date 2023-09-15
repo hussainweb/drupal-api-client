@@ -4,7 +4,6 @@ namespace Hussainweb\DrupalApi\Entity;
 
 class Comment extends Entity
 {
-
     /**
      * {@inheritdoc}
      */

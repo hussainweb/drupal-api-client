@@ -6,7 +6,6 @@ use Hussainweb\DrupalApi\Entity\Comment;
 
 class CommentCollection extends EntityCollection
 {
-
     /**
      * {@inheritdoc}
      */

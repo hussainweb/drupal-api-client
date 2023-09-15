@@ -4,7 +4,6 @@ namespace Hussainweb\DrupalApi\Entity;
 
 class Node extends Entity
 {
-
     public static $types = [
         'book',
         'book_listing',

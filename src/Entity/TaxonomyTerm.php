@@ -4,7 +4,6 @@ namespace Hussainweb\DrupalApi\Entity;
 
 class TaxonomyTerm extends Entity
 {
-
     /**
      * Map vocabulary id's to names.
      *

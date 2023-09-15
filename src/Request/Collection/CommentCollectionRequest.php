@@ -4,7 +4,6 @@ namespace Hussainweb\DrupalApi\Request\Collection;
 
 class CommentCollectionRequest extends CollectionRequest
 {
-
     public function __construct(array $query = [], array $headers = [])
     {
         $uri = static::DEFAULT_BASE_URI . 'comment.json';

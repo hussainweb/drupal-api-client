@@ -9,7 +9,6 @@ use Psr\Http\Client\ClientInterface;
 
 class Client
 {
-
     /**
      * @var ClientInterface
      */

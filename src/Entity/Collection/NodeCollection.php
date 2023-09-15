@@ -6,7 +6,6 @@ use Hussainweb\DrupalApi\Entity\Node;
 
 class NodeCollection extends EntityCollection
 {
-
     /**
      * {@inheritdoc}
      */

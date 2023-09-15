@@ -6,7 +6,6 @@ use Hussainweb\DrupalApi\Entity\PiftCiJob;
 
 class PiftCiJobCollection extends EntityCollection
 {
-
     /**
      * {@inheritdoc}
      */

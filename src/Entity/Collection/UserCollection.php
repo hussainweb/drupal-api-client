@@ -6,7 +6,6 @@ use Hussainweb\DrupalApi\Entity\User;
 
 class UserCollection extends EntityCollection
 {
-
     /**
      * {@inheritdoc}
      */

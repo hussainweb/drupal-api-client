@@ -7,7 +7,6 @@ use Psr\Http\Message\ResponseInterface;
 
 abstract class EntityCollection implements \Iterator, \Countable
 {
-
     private $iteratorPosition = 0;
 
     /**
