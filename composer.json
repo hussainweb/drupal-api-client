@@ -2,7 +2,7 @@
     "name": "hussainweb/drupal-api-client",
     "description": "Convenient wrapper on Guzzle to access Drupal.org API",
     "keywords": ["drupal", "api"],
-    "license": "GPL-2.0",
+    "license": "GPL-2.0-or-later",
     "type": "library",
     "authors": [
         {
