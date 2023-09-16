@@ -86,7 +86,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function current()
+    public function current(): mixed
     {
         $class = $this->getListItemClass();
         return new $class($this->rawData->list[$this->iteratorPosition]);
@@ -95,7 +95,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function next()
+    public function next(): void
     {
         ++$this->iteratorPosition;
     }
@@ -103,7 +103,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function key()
+    public function key(): mixed
     {
         return $this->iteratorPosition;
     }
@@ -111,7 +111,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->rawData->list[$this->iteratorPosition]);
     }
@@ -119,7 +119,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->iteratorPosition = 0;
     }
@@ -127,7 +127,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     /**
      * {@inheritdoc}
      */
-    public function count()
+    public function count(): int
     {
         return is_countable($this->rawData->list) ? count($this->rawData->list) : 0;
     }
