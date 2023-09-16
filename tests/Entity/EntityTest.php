@@ -18,7 +18,7 @@ class EntityTest extends TestCase
     public function testEntity()
     {
         $entity = $this->getMockForAbstractClass(Entity::class, [
-            'raw_data' => (object) ['test' => 1],
+            'rawData' => (object) ['test' => 1],
         ]);
         $entity->method('getIdField')
             ->willReturn('test');
