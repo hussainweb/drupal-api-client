@@ -12,7 +12,7 @@ abstract class Entity
     protected $data;
 
     /**
-     * @param mixed $raw_data
+     * @param mixed $rawData
      */
     final public function __construct(protected $rawData)
     {

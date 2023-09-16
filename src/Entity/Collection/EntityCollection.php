@@ -10,7 +10,7 @@ abstract class EntityCollection implements \Iterator, \Countable
     private int $iteratorPosition = 0;
 
     /**
-     * @param \stdClass $data
+     * @param \stdClass $rawData
      */
     final public function __construct(protected $rawData)
     {
