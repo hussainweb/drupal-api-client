@@ -89,7 +89,10 @@ abstract class EntityCollection implements \Iterator, \Countable
     public function current(): mixed
     {
         $class = $this->getListItemClass();
-        return new $class($this->rawData->list[$this->iteratorPosition]);
+        // Check if the array key exists before accessing it
+        if (isset($this->rawData->list[$this->iteratorPosition])) {
+          return new $class($this->rawData->list[$this->iteratorPosition]);
+        }
     }
 
     /**
