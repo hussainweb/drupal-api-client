@@ -16,12 +16,12 @@ Use composer to install the package.
 composer require hussainweb/drupal-api-client:"^2.0"
 ```
 
-Drupal API client version 2+ no longer depends on Guzzle. It can work with any HTTP client that implements a [HTTPlug](https://github.com/php-http/httplug) compatible ClientInterface. Here's a [list of providers](https://packagist.org/providers/php-http/client-implementation).
+Drupal API client version 2+ does not depend on a specific HTTP client. It works with any [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client. Here's a [list of providers](https://packagist.org/providers/psr/http-client-implementation).
 
-For example, to use Guzzle, you would need the Guzzle 6 adapter. This will install Guzzle 6 as well.
+For example, Guzzle 7 and later implement PSR-18 directly, so you can pass a `GuzzleHttp\Client` without any adapter.
 
 ```bash
-composer require php-http/guzzle6-adapter
+composer require guzzlehttp/guzzle
 ```
 
 ## Usage
@@ -29,37 +29,20 @@ composer require php-http/guzzle6-adapter
 The library provides a single client and multiple request classes to send requests to drupal.org API. To send a request, create a request object and call the `getEntity` method on the client class.
 
 ```php
-use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
+use GuzzleHttp\Client as GuzzleClient;
 use Hussainweb\DrupalApi\Client;
 use Hussainweb\DrupalApi\Request\UserRequest;
 
-$config = [
-    'timeout' => 2,
-    // 'handler' => ...
-    // ...
-];
-$adapter = GuzzleAdapter::createWithConfig($config);
+$http_client = new GuzzleClient(['timeout' => 2]);
 
 // Retrieve user with uid 314031.
-$client = new Client($adapter);
+$client = new Client($http_client);
 $user_request = new UserRequest('314031');
 $user = $client->getEntity($user_request);
 ```
 
-The above example uses [Guzzle 6 Adapter](http://docs.php-http.org/en/latest/clients/guzzle6-adapter.html) but any HTTP client implementing php-http based clients will work. Construct the HTTP client and pass it when constructing the `Hussainweb\DrupalApi\Client` class.
-
-There are various request classes to retrieve different types of entities and entity listings. Many of the entity request classes have a corresponding list request class as well, e.g. `CommentRequest` and `CommentCollectionRequest`.
-
-### User Agent
-
-In accordance with responsible usage of Drupal.org API, it is important to set the user-agent header to indicate your application. You may set this request once globally using the static property on the `Request` class.
-
-    Request::$userAgent = 'Drupal Statistics Collector';
-
-You have to do this only once as this user-agent is applied to all child requests as well. See the test in `\Hussainweb\DrupalApi\Tests\Request\RequestTest::testRequestUserAgent` for verifying the behaviour.
+Any PSR-18 HTTP client will work. Construct the HTTP client and pass it when constructing the `Hussainweb\DrupalApi\Client` class.
 
 ## Note on HTTP client implementations
 
-As noted above, Drupal API Client version 2+ no longer depends on Guzzle but any HTTP client which provides a [php-http/client-implementation](https://packagist.org/providers/php-http/client-implementation). This is a PSR-18 compatible HTTP client interface and you can read more about it at [HTTPlug](https://github.com/php-http/httplug).
-
-Since PSR-18 has been implemented in a different provider ([psr/http-client-implementation](https://packagist.org/providers/psr/http-client-implementation)), this client might move to that in the near future. Right now, almost all clients that support the HTTPlug interface also supports the PSR-18 interface and you would be able to use that client right now. The only notable exception is Guzzle 7 but there is [discussion to add support for that in an adapter](https://github.com/php-http/guzzle6-adapter/pull/72).
+Version 2.3 and later require any [psr/http-client-implementation](https://packagist.org/providers/psr/http-client-implementation). Earlier 2.x versions required `php-http/client-implementation` (HTTPlug), which blocked Guzzle 8 and Drupal 12, so a Guzzle adapter is no longer needed.
