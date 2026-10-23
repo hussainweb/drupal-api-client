@@ -11,11 +11,17 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        php-versions: ['8.0', '8.1', '8.2']
+        php-versions: ['8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        # psr7 3.x requires PHP 8.1+, so 8.0 resolves to psr7 2.x. The
+        # lowest-deps run covers the oldest psr7 we still claim to support.
+        dependencies: ['highest']
+        include:
+          - php-versions: '8.1'
+            dependencies: 'lowest'
 
     steps:
     - uses: actions/checkout@v4
@@ -24,21 +30,15 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
+        coverage: none
 
-    - name: Validate composer.json and composer.lock
+    - name: Validate composer.json
       run: composer validate --strict
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      uses: ramsey/composer-install@v3
+      with:
+        dependency-versions: ${{ matrix.dependencies }}
 
     - name: Run phpcs
       run: composer run-script phpcs
@@ -47,4 +47,4 @@ jobs:
       run: composer run-script phpstan
 
     - name: Run test suite
-      run: composer run-script test
+      run: vendor/bin/phpunit --no-coverage
