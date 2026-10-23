@@ -15,12 +15,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
-        # psr7 3.x requires PHP 8.1+, so 8.0 resolves to psr7 2.x. The
-        # lowest-deps run covers the oldest psr7 we still claim to support.
+        php-versions: ['8.2', '8.3', '8.4', '8.5']
+        # The lowest-deps run covers the oldest dependency versions we still claim
+        # to support.
         dependencies: ['highest']
         include:
-          - php-versions: '8.1'
+          - php-versions: '8.4'
             dependencies: 'lowest'
 
     steps:
